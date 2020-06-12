@@ -8,3 +8,23 @@ MACsimize is a KWin script that moves maximized windows to a new virtual desktop
 
 ## Change Log
 See [CHANGELOG.md](CHANGELOG.md).
+
+
+** Installation:
+
+   #+BEGIN_SRC bash
+   git clone https://github.com/sdasilva/kwin-macsimize.git
+   cd kwin-macsimize/
+   plasmapkg2 --type kwinscript -i .
+   #+END_SRC
+   
+   or if updating
+   
+   #+BEGIN_SRC bash
+   plasmapkg2 --type kwinscript -u .
+   #+END_SRC
+
+** Usage:
+   Install
+
+   Activate the script using ~kcmshell5 kwinscripts~
