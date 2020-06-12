@@ -50,7 +50,7 @@ function install() {
 }
 
 function uninstall() {
-    workspace.clientMaximizeSet.disconnect(handler);
+    workspace.clientMaximizeSet.disconnect(fullHandler);
     workspace.clientRemoved.disconnect(rmHandler);
     log("Handler cleared");
 }
