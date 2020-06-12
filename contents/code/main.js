@@ -20,7 +20,10 @@ function moveToNewDesktop(client) {
 function moveBack(client) {
     var saved = state.savedDesktops[client.windowId];
     if (saved === undefined) {
-        log("Ignoring window not previously seen: " + client.caption);
+        log("Window not previously seen: " + client.caption + ". Moving to desktop 1");
+        client.desktop = 1;
+        workspace.currentDesktop = 1;
+        workspace.activateClient = client;
     } else {
         log("Resotre client desktop to " + saved);
         client.desktop = saved;
@@ -55,7 +58,7 @@ function uninstall() {
     log("Handler cleared");
 }
 
-registerUserActionsMenu(function(client){
+registerUserActionsMenu(function (client) {
     return {
         text: "Maximize to New Desktop",
         items: [
@@ -63,7 +66,7 @@ registerUserActionsMenu(function(client){
                 text: "Enabled",
                 checkable: true,
                 checked: state.enabled,
-                triggered: function() {
+                triggered: function () {
                     state.enabled = !state.enabled;
                     if (state.enabled) {
                         install();
